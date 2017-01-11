@@ -12,5 +12,6 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	$items = ['name' => 'name value'];
+    return view('welcome')->withItemse($items);
 });
