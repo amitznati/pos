@@ -12,6 +12,12 @@
 */
 
 Route::get('/', function () {
-	$items = ['name' => 'name value'];
+	$items = array(
+            ['x' => 0, 'y' => 0, 'width' => 2, 'height' => 2, 'name' => 'item 1'],
+            ['x' => 2, 'y' => 0, 'width' => 2, 'height' => 2, 'name' => 'item 2'],
+            ['x' => 4, 'y' => 0, 'width' => 2, 'height' => 2, 'name' => 'item 3'],
+            ['x' => 6, 'y' => 0, 'width' => 2, 'height' => 2, 'name' => 'item 4'],
+            ['x' => 0, 'y' => 2, 'width' => 2, 'height' => 2, 'name' => 'item 5']
+        );
     return view('welcome')->withItemse($items);
 });
