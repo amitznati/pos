@@ -18,7 +18,7 @@
 
         <style type="text/css">
         .grid-stack {
-            background: lightgoldenrodyellow;
+            /*background: lightgoldenrodyellow;*/
             margin: auto;
         }
 
@@ -87,6 +87,7 @@
     <script src="js/lodash.min.js"></script>
     <script src="gridstack/gridstack.js"></script>
     <script src="gridstack/gridstack.jQueryUI.js"></script>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
     <script type="text/javascript">
         var items = {!!json_encode($itemse)!!} 
     </script>
