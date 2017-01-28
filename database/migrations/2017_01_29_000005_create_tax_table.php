@@ -3,28 +3,23 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGroupTable extends Migration
+class CreateTaxTable extends Migration
 {
     /**
      * Run the migrations.
-     * @table group
+     * @table tax
      *
      * @return void
      */
     public function up()
     {
-        Schema::create('group', function (Blueprint $table) {
+        Schema::create('tax', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('ID');
-            $table->string('GroupName', 50);
-            $table->integer('DepartmentID');
+            $table->string('TaxName', 50);
+            $table->double('TaxPercentage');
             $table->tinyInteger('Mode')->default('1');
-
-
-            $table->foreign('DepartmentID', 'FK_Group_Department')
-                ->references('ID')->on('department')
-                ->onDelete('no action')
-                ->onUpdate('no action');
+            $table->date('LastUpdateDate')->nullable()->default(null);
         });
     }
 
@@ -35,6 +30,6 @@ class CreateGroupTable extends Migration
      */
      public function down()
      {
-       Schema::dropIfExists('group');
+       Schema::dropIfExists('tax');
      }
 }

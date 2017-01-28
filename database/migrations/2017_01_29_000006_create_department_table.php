@@ -3,25 +3,21 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCustomerTable extends Migration
+class CreateDepartmentTable extends Migration
 {
     /**
      * Run the migrations.
-     * @table customer
+     * @table department
      *
      * @return void
      */
     public function up()
     {
-        Schema::create('customer', function (Blueprint $table) {
+        Schema::create('department', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('ID');
-
-
-            $table->foreign('ID', 'customer_ID')
-                ->references('ID')->on('person')
-                ->onDelete('no action')
-                ->onUpdate('no action');
+            $table->char('DeptName', 50);
+            $table->tinyInteger('Mode')->default('1');
         });
     }
 
@@ -32,6 +28,6 @@ class CreateCustomerTable extends Migration
      */
      public function down()
      {
-       Schema::dropIfExists('customer');
+       Schema::dropIfExists('department');
      }
 }
