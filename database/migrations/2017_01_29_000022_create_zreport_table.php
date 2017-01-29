@@ -13,16 +13,15 @@ class CreateZreportTable extends Migration
      */
     public function up()
     {
-        Schema::create('zreport', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->increments('ZNumber');
-            $table->integer('empId');
+        Schema::create('z_reports', function (Blueprint $table) {
+            $table->increments('z_number');
+            $table->integer('employee_id')->unsigned();
             $table->timestamp('reportDate')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->decimal('reprotTotalAmount', 19, 4);
+            $table->decimal('reprot_total_amount', 19, 4);
 
 
-            $table->foreign('empId', 'FK_ZReport_Employee')
-                ->references('ID')->on('employee')
+            $table->foreign('employee_id', 'FK_ZReport_Employee')
+                ->references('id')->on('employees')
                 ->onDelete('no action')
                 ->onUpdate('no action');
         });

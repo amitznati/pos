@@ -13,19 +13,18 @@ class CreateRelitemdisplayinfoProductTable extends Migration
      */
     public function up()
     {
-        Schema::create('relitemdisplayinfo_product', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->increments('ItemDisplayInfoID');
-            $table->integer('ProductID');
+        Schema::create('rel_item_display_info_product', function (Blueprint $table) {
+            $table->integer('item_display_info_id')->unsigned();
+            $table->integer('product_id')->unsigned();
 
 
-            $table->foreign('ItemDisplayInfoID', 'relitemdisplayinfo_product_ItemDisplayInfoID')
-                ->references('ID')->on('itemdisplayinfo')
+            $table->foreign('item_display_info_id', 'relitemdisplayinfo_product_ItemDisplayInfoID')
+                ->references('id')->on('item_display_info')
                 ->onDelete('no action')
                 ->onUpdate('no action');
 
-            $table->foreign('ProductID', 'FK_RelItemDisplayInfo_Product_Product')
-                ->references('ID')->on('product')
+            $table->foreign('product_id', 'FK_RelItemDisplayInfo_Product_Product')
+                ->references('id')->on('products')
                 ->onDelete('no action')
                 ->onUpdate('no action');
         });

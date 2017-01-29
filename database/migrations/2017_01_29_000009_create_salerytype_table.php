@@ -13,10 +13,11 @@ class CreateSalerytypeTable extends Migration
      */
     public function up()
     {
-        Schema::create('salerytype', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->increments('SaleryTypeID');
-            $table->string('SaleryTypeName', 50);
+        Schema::create('salery_types', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name', 50);
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

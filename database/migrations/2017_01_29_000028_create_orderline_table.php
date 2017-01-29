@@ -13,22 +13,21 @@ class CreateOrderlineTable extends Migration
      */
     public function up()
     {
-        Schema::create('orderline', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->increments('ordId');
-            $table->integer('prodId');
+        Schema::create('order_lines', function (Blueprint $table) {
+            $table->integer('order_id')->unsigned();
+            $table->integer('product_id')->unsigned();
             $table->double('quantity');
-            $table->decimal('prodUnitPrice', 19, 4);
-            $table->decimal('prodTotalPrice', 19, 4);
+            $table->decimal('product_unit_price', 19, 4);
+            $table->decimal('product_total_price', 19, 4);
 
 
-            $table->foreign('ordId', 'orderline_ordId')
-                ->references('ID')->on('order')
+            $table->foreign('order_id', 'orderline_ordId')
+                ->references('id')->on('orders')
                 ->onDelete('no action')
                 ->onUpdate('no action');
 
-            $table->foreign('prodId', 'FK_OrderLine_Product')
-                ->references('ID')->on('product')
+            $table->foreign('product_id', 'FK_OrderLine_Product')
+                ->references('id')->on('products')
                 ->onDelete('no action')
                 ->onUpdate('no action');
         });

@@ -13,14 +13,15 @@ class CreateAddressTable extends Migration
      */
     public function up()
     {
-        Schema::create('address', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->increments('ID');
-            $table->string('StreetName', 50)->nullable()->default(null);
-            $table->integer('StreetNumber')->nullable()->default(null);
-            $table->integer('HousNumber')->nullable()->default(null);
-            $table->string('City', 50)->nullable()->default(null);
-            $table->integer('Zip')->nullable()->default(null);
+        Schema::create('addresses', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('street_name', 50)->nullable()->default(null);
+            $table->integer('street_number')->unsigned()->nullable()->default(null);
+            $table->integer('hous_number')->unsigned()->nullable()->default(null);
+            $table->string('city', 50)->nullable()->default(null);
+            $table->integer('zip')->unsigned()->nullable()->default(null);
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

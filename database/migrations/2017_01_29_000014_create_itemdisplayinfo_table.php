@@ -13,27 +13,27 @@ class CreateItemdisplayinfoTable extends Migration
      */
     public function up()
     {
-        Schema::create('itemdisplayinfo', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->increments('ID');
-            $table->integer('MenuID');
-            $table->integer('ItemID');
-            $table->tinyInteger('IsMenu');
-            $table->string('DisplayName', 50);
-            $table->integer('IndexRow');
-            $table->integer('IndexColumn');
-            $table->integer('NumberOfRows');
-            $table->integer('NumberOfColumns');
-            $table->longText('DisplayProperties')->nullable()->default(null);
-            $table->string('BackgroundColor', 50)->nullable()->default(null);
-            $table->string('TextColor', 50)->nullable()->default(null);
-            $table->string('FontString', 50)->nullable()->default(null);
-            $table->longText('ImageUrl')->nullable()->default(null);
-            $table->char('FontSize', 10)->nullable()->default(null);
+        Schema::create('item_display_info', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('menu_id')->unsigned();
+            $table->integer('item_id')->unsigned();
+            $table->boolean('IsMenu');
+            $table->string('display_name', 50);
+            $table->integer('index_row');
+            $table->integer('index_column');
+            $table->integer('number_of_rows');
+            $table->integer('number_of_columns');
+            // $table->longText('display_properties')->nullable()->default(null);
+            // $table->string('BackgroundColor', 50)->nullable()->default(null);
+            // $table->string('TextColor', 50)->nullable()->default(null);
+            // $table->string('FontString', 50)->nullable()->default(null);
+            // $table->longText('ImageUrl')->nullable()->default(null);
+            // $table->char('FontSize', 10)->nullable()->default(null);
+            $table->timestamps();
+            $table->softDeletes();
 
-
-            $table->foreign('MenuID', 'FK_ItemDisplayInfo_Menu')
-                ->references('ID')->on('menu')
+            $table->foreign('menu_id', 'FK_ItemDisplayInfo_Menu')
+                ->references('id')->on('menus')
                 ->onDelete('no action')
                 ->onUpdate('no action');
         });

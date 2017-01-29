@@ -21,3 +21,14 @@ Route::get('/', function () {
         );
     return view('welcome')->withItemse($items);
 });
+
+
+
+
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
+
+Route::resource('products', 'ProductController');

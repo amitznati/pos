@@ -13,16 +13,16 @@ class CreateGroupTable extends Migration
      */
     public function up()
     {
-        Schema::create('group', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->increments('ID');
-            $table->string('GroupName', 50);
-            $table->integer('DepartmentID');
-            $table->tinyInteger('Mode')->default('1');
+        Schema::create('groups', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name', 50);
+            $table->integer('department_id')->unsigned();
+            $table->timestamps();
+            $table->softDeletes();
 
 
-            $table->foreign('DepartmentID', 'FK_Group_Department')
-                ->references('ID')->on('department')
+            $table->foreign('department_id', 'FK_Group_Department')
+                ->references('id')->on('departments')
                 ->onDelete('no action')
                 ->onUpdate('no action');
         });

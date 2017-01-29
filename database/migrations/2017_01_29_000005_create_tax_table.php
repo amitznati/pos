@@ -13,13 +13,12 @@ class CreateTaxTable extends Migration
      */
     public function up()
     {
-        Schema::create('tax', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->increments('ID');
-            $table->string('TaxName', 50);
-            $table->double('TaxPercentage');
-            $table->tinyInteger('Mode')->default('1');
-            $table->date('LastUpdateDate')->nullable()->default(null);
+        Schema::create('taxes', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name', 50);
+            $table->double('percentage');
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

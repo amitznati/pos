@@ -13,19 +13,18 @@ class CreateRelitemdisplayinfoMenuTable extends Migration
      */
     public function up()
     {
-        Schema::create('relitemdisplayinfo_menu', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->increments('ItemDisplayInfoID');
-            $table->integer('MenuID');
+        Schema::create('rel_item_display_info_menu', function (Blueprint $table) {
+            $table->integer('item_display_info_id')->unsigned();
+            $table->integer('menu_id')->unsigned();
 
 
-            $table->foreign('ItemDisplayInfoID', 'relitemdisplayinfo_menu_ItemDisplayInfoID')
-                ->references('ID')->on('itemdisplayinfo')
+            $table->foreign('item_display_info_id', 'relitemdisplayinfo_menu_ItemDisplayInfoID')
+                ->references('id')->on('item_display_info')
                 ->onDelete('no action')
                 ->onUpdate('no action');
 
-            $table->foreign('MenuID', 'FK_RelItemDisplayInfo_Menu_Menu')
-                ->references('ID')->on('menu')
+            $table->foreign('menu_id', 'FK_RelItemDisplayInfo_Menu_Menu')
+                ->references('id')->on('menus')
                 ->onDelete('no action')
                 ->onUpdate('no action');
         });

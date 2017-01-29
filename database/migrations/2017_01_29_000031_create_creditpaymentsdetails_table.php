@@ -13,16 +13,15 @@ class CreateCreditpaymentsdetailsTable extends Migration
      */
     public function up()
     {
-        Schema::create('creditpaymentsdetails', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->increments('ID');
-            $table->integer('CreditPaymentID');
+        Schema::create('credit_payments_details', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('credit_payment_id')->unsigned();
             $table->integer('PaymentNumber');
             $table->decimal('Amount', 19, 4);
 
 
-            $table->foreign('CreditPaymentID', 'FK_CreditPaymentsDetails_CreditPayment')
-                ->references('ID')->on('creditpayment')
+            $table->foreign('credit_payment_id', 'FK_CreditPaymentsDetails_CreditPayment')
+                ->references('id')->on('credit_payments')
                 ->onDelete('no action')
                 ->onUpdate('no action');
         });

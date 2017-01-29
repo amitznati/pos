@@ -13,16 +13,15 @@ class CreateDailyattendanceTable extends Migration
      */
     public function up()
     {
-        Schema::create('dailyattendance', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->increments('empId');
+        Schema::create('daily_attendance', function (Blueprint $table) {
+            $table->integer('employee_id')->unsigned();
             $table->timestamp('entryTime')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->dateTime('exitTime')->nullable()->default(null);
-            $table->tinyInteger('isPresent')->default('1');
+            $table->boolean('isPresent')->default(true);
 
 
-            $table->foreign('empId', 'dailyattendance_empId')
-                ->references('ID')->on('employee')
+            $table->foreign('employee_id', 'dailyattendance_empId')
+                ->references('id')->on('employees')
                 ->onDelete('no action')
                 ->onUpdate('no action');
         });

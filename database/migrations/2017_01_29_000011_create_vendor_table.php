@@ -13,16 +13,15 @@ class CreateVendorTable extends Migration
      */
     public function up()
     {
-        Schema::create('vendor', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->increments('ID');
-            $table->string('CompanyName', 50);
-            $table->tinyInteger('Mode')->default('1');
-            $table->integer('AddressID')->nullable()->default(null);
+        Schema::create('vendors', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('company_name', 50);
+            $table->integer('address_id')->unsigned()->nullable()->default(null);
+            $table->timestamps();
+            $table->softDeletes();
 
-
-            $table->foreign('AddressID', 'FK_Vendor_Address')
-                ->references('ID')->on('address')
+            $table->foreign('address_id', 'FK_Vendor_Address')
+                ->references('id')->on('addresses')
                 ->onDelete('no action')
                 ->onUpdate('no action');
         });

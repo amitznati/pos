@@ -13,16 +13,15 @@ class CreatePaymentTable extends Migration
      */
     public function up()
     {
-        Schema::create('payment', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->increments('ID');
-            $table->decimal('TotalPayed', 19, 4);
-            $table->integer('OrderID');
-            $table->char('PaymentTypeName', 10);
+        Schema::create('payments', function (Blueprint $table) {
+            $table->increments('id');
+            $table->decimal('total_payed', 19, 4);
+            $table->integer('order_id')->unsigned();
+            $table->char('payment_type_name', 10);
 
 
-            $table->foreign('OrderID', 'FK_Payment_Order')
-                ->references('ID')->on('order')
+            $table->foreign('order_id', 'FK_Payment_Order')
+                ->references('id')->on('orders')
                 ->onDelete('no action')
                 ->onUpdate('no action');
         });

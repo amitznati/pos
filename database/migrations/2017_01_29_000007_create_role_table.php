@@ -13,10 +13,11 @@ class CreateRoleTable extends Migration
      */
     public function up()
     {
-        Schema::create('role', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->increments('ID');
-            $table->string('JobTitle', 50);
+        Schema::create('roles', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('job_title', 50);
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -13,34 +13,33 @@ class CreateProductTable extends Migration
      */
     public function up()
     {
-        Schema::create('product', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->increments('ID');
-            $table->string('prodName', 50);
-            $table->integer('deptId');
-            $table->integer('groupId');
-            $table->integer('VandorID')->nullable()->default(null);
-            $table->decimal('salePrice', 19, 4);
-            $table->decimal('bayPrice', 19, 4)->nullable()->default(null);
-            $table->longText('bacode')->nullable()->default(null);
-            $table->longText('brand')->nullable()->default(null);
-            $table->date('lastUpdateDate')->nullable()->default(null);
-            $table->tinyInteger('mode');
+        Schema::create('products', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name', 50);
+            $table->integer('dept_id')->unsigned();
+            $table->integer('group_id')->unsigned();
+            $table->integer('vandor_id')->unsigned()->nullable()->default(null);
+            $table->decimal('sale_price', 19, 4);
+            $table->decimal('bay_price', 19, 4)->nullable()->default(null);
+            $table->string('bacode')->nullable()->default(null);
+            $table->string('brand')->nullable()->default(null);
+            $table->timestamps();
+            $table->softDeletes();
             $table->longText('description')->nullable()->default(null);
 
 
-            $table->foreign('deptId', 'FK_Product_Department')
-                ->references('ID')->on('department')
+            $table->foreign('dept_id', 'FK_Product_Department')
+                ->references('id')->on('departments')
                 ->onDelete('no action')
                 ->onUpdate('no action');
 
-            $table->foreign('groupId', 'FK_Product_Group')
-                ->references('ID')->on('group')
+            $table->foreign('group_id', 'FK_Product_Group')
+                ->references('id')->on('groups')
                 ->onDelete('no action')
                 ->onUpdate('no action');
 
-            $table->foreign('VandorID', 'FK_Product_Vendor')
-                ->references('ID')->on('vendor')
+            $table->foreign('vandor_id', 'FK_Product_Vendor')
+                ->references('id')->on('vendors')
                 ->onDelete('no action')
                 ->onUpdate('no action');
         });

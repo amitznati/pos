@@ -13,11 +13,11 @@ class CreateDepartmentTable extends Migration
      */
     public function up()
     {
-        Schema::create('department', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->increments('ID');
-            $table->char('DeptName', 50);
-            $table->tinyInteger('Mode')->default('1');
+        Schema::create('departments', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name', 50);
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

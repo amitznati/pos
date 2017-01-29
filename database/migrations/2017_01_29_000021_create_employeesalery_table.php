@@ -13,23 +13,22 @@ class CreateEmployeesaleryTable extends Migration
      */
     public function up()
     {
-        Schema::create('employeesalery', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->increments('ID');
-            $table->integer('EmployeeID');
-            $table->integer('SaleryTypeID');
-            $table->decimal('Amount', 19, 4);
-            $table->date('StartDate');
-            $table->date('EndDate')->nullable()->default(null);
+        Schema::create('employee_salery', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('employee_id')->unsigned();
+            $table->integer('salery_type_id')->unsigned();
+            $table->decimal('amount', 19, 4);
+            $table->timestamps();
+            $table->softDeletes();
 
 
-            $table->foreign('EmployeeID', 'FK_EmployeeSalery_Employee')
-                ->references('ID')->on('employee')
+            $table->foreign('employee_id', 'FK_EmployeeSalery_Employee')
+                ->references('id')->on('employees')
                 ->onDelete('no action')
                 ->onUpdate('no action');
 
-            $table->foreign('SaleryTypeID', 'FK_EmployeeSalery_SaleryType')
-                ->references('SaleryTypeID')->on('salerytype')
+            $table->foreign('salery_type_id', 'FK_EmployeeSalery_SaleryType')
+                ->references('id')->on('salery_types')
                 ->onDelete('no action')
                 ->onUpdate('no action');
         });

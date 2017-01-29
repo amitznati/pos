@@ -13,19 +13,18 @@ class CreateRelvandorcontactTable extends Migration
      */
     public function up()
     {
-        Schema::create('relvandorcontact', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->increments('VendorID');
-            $table->integer('ContactID');
+        Schema::create('rel_vandor_contact', function (Blueprint $table) {
+            $table->integer('vendor_id')->unsigned();
+            $table->integer('contact_id')->unsigned();
 
 
-            $table->foreign('ContactID', 'FK_RelVandorContact_Contact')
-                ->references('ID')->on('contact')
+            $table->foreign('contact_id', 'FK_RelVandorContact_Contact')
+                ->references('id')->on('contacts')
                 ->onDelete('no action')
                 ->onUpdate('no action');
 
-            $table->foreign('VendorID', 'relvandorcontact_VendorID')
-                ->references('ID')->on('vendor')
+            $table->foreign('vendor_id', 'FK_RelVandorContact_Vendor')
+                ->references('id')->on('vendors')
                 ->onDelete('no action')
                 ->onUpdate('no action');
         });

@@ -13,15 +13,14 @@ class CreateCashpaymentTable extends Migration
      */
     public function up()
     {
-        Schema::create('cashpayment', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->increments('ID');
-            $table->decimal('RecievedAmount', 19, 4);
-            $table->decimal('Change', 19, 4)->default('0.0000');
+        Schema::create('cash_payments', function (Blueprint $table) {
+            $table->integer('id')->unsigned();
+            $table->decimal('recieved_amount', 19, 4);
+            $table->decimal('change', 19, 4)->default('0.0000');
 
 
-            $table->foreign('ID', 'cashpayment_ID')
-                ->references('ID')->on('payment')
+            $table->foreign('id', 'cashpayment_ID')
+                ->references('id')->on('payments')
                 ->onDelete('no action')
                 ->onUpdate('no action');
         });
