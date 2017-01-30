@@ -1,0 +1,100 @@
+[
+    {
+        "name": "id",
+        "dbType": "integer,true,true",
+        "htmlType": null,
+        "validations": null,
+        "searchable": false,
+        "fillable": false,
+        "primary": true,
+        "inForm": false,
+        "inIndex": false
+    },
+    {
+        "name": "name",
+        "dbType": "string",
+        "htmlType": null,
+        "validations": null,
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true
+    },
+    {
+        "name": "department_id",
+        "dbType": "integer,false,true",
+        "htmlType": null,
+        "validations": null,
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true
+    },
+    {
+        "name": "created_at",
+        "dbType": "datetime",
+        "htmlType": null,
+        "validations": null,
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    },
+    {
+        "name": "updated_at",
+        "dbType": "datetime",
+        "htmlType": null,
+        "validations": null,
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    },
+    {
+        "name": "deleted_at",
+        "dbType": "datetime",
+        "htmlType": null,
+        "validations": null,
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    },
+    {
+        "type": "relation",
+        "relation": "mt1,"
+    },
+    {
+        "type": "relation",
+        "relation": "mtm,,employee_salery"
+    },
+    {
+        "type": "relation",
+        "relation": "mtm,,employees"
+    },
+    {
+        "type": "relation",
+        "relation": "mtm,,order_lines"
+    },
+    {
+        "type": "relation",
+        "relation": "1tm,"
+    },
+    {
+        "type": "relation",
+        "relation": "mtm,,rel_item_display_info_menu"
+    },
+    {
+        "type": "relation",
+        "relation": "mtm,,rel_item_display_info_product"
+    },
+    {
+        "type": "relation",
+        "relation": "mtm,,rel_vandor_contact"
+    }
+]

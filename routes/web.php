@@ -32,3 +32,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 Route::resource('products', 'ProductController');
+
+Route::resource('departments', 'DepartmentController');
+
+Route::resource('groups', 'GroupController');
