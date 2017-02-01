@@ -34,6 +34,6 @@ class CreateDailyattendanceTable extends Migration
      */
      public function down()
      {
-       Schema::dropIfExists('dailyattendance');
+       Schema::dropIfExists('daily_attendance');
      }
 }

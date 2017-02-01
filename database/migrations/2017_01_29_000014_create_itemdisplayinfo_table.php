@@ -46,6 +46,6 @@ class CreateItemdisplayinfoTable extends Migration
      */
      public function down()
      {
-       Schema::dropIfExists('itemdisplayinfo');
+       Schema::dropIfExists('item_display_info');
      }
 }

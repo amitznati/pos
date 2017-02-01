@@ -34,6 +34,6 @@ class CreateVendorTable extends Migration
      */
      public function down()
      {
-       Schema::dropIfExists('vendor');
+       Schema::dropIfExists('vendors');
      }
 }

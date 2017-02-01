@@ -33,6 +33,6 @@ class CreateCreditpaymentTable extends Migration
      */
      public function down()
      {
-       Schema::dropIfExists('creditpayment');
+       Schema::dropIfExists('credit_payments');
      }
 }

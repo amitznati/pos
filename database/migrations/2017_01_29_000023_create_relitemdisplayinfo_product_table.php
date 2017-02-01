@@ -37,6 +37,6 @@ class CreateRelitemdisplayinfoProductTable extends Migration
      */
      public function down()
      {
-       Schema::dropIfExists('relitemdisplayinfo_product');
+       Schema::dropIfExists('rel_item_display_info_product');
      }
 }

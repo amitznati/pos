@@ -40,6 +40,6 @@ class CreateOrderlineTable extends Migration
      */
      public function down()
      {
-       Schema::dropIfExists('orderline');
+       Schema::dropIfExists('order_lines');
      }
 }

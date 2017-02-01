@@ -26,6 +26,6 @@ class CreatePersontypeTable extends Migration
      */
      public function down()
      {
-       Schema::dropIfExists('persontype');
+       Schema::dropIfExists('person_types');
      }
 }

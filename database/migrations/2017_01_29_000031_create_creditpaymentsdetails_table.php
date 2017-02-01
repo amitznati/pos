@@ -34,6 +34,6 @@ class CreateCreditpaymentsdetailsTable extends Migration
      */
      public function down()
      {
-       Schema::dropIfExists('creditpaymentsdetails');
+       Schema::dropIfExists('credit_payments_details');
      }
 }

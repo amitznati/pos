@@ -28,6 +28,6 @@ class CreateSalerytypeTable extends Migration
      */
      public function down()
      {
-       Schema::dropIfExists('salerytype');
+       Schema::dropIfExists('salery_types');
      }
 }

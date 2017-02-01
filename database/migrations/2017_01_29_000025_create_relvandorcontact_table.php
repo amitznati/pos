@@ -37,6 +37,6 @@ class CreateRelvandorcontactTable extends Migration
      */
      public function down()
      {
-       Schema::dropIfExists('relvandorcontact');
+       Schema::dropIfExists('rel_vandor_contact');
      }
 }

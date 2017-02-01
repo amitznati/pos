@@ -34,6 +34,6 @@ class CreateZreportTable extends Migration
      */
      public function down()
      {
-       Schema::dropIfExists('zreport');
+       Schema::dropIfExists('z_reports');
      }
 }

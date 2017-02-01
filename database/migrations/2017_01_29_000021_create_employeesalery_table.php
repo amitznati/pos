@@ -41,6 +41,6 @@ class CreateEmployeesaleryTable extends Migration
      */
      public function down()
      {
-       Schema::dropIfExists('employeesalery');
+       Schema::dropIfExists('employee_salery');
      }
 }

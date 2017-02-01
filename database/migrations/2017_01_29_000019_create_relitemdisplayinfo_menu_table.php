@@ -37,6 +37,6 @@ class CreateRelitemdisplayinfoMenuTable extends Migration
      */
      public function down()
      {
-       Schema::dropIfExists('relitemdisplayinfo_menu');
+       Schema::dropIfExists('rel_item_display_info_menu');
      }
 }

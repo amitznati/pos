@@ -33,6 +33,6 @@ class CreateCashpaymentTable extends Migration
      */
      public function down()
      {
-       Schema::dropIfExists('cashpayment');
+       Schema::dropIfExists('cash_payments');
      }
 }
