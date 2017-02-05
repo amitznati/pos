@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Models\Product;
+use App\Models\MyProduct;
 use InfyOm\Generator\Common\BaseRepository;
 
 class ProductRepository extends BaseRepository
@@ -27,6 +27,6 @@ class ProductRepository extends BaseRepository
      **/
     public function model()
     {
-        return Product::class;
+        return MyProduct::class;
     }
 }

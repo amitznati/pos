@@ -10,3 +10,11 @@
     <a href="{!! route('groups.index') !!}"><i class="fa fa-edit"></i><span>Groups</span></a>
 </li>
 
+<li class="{{ Request::is('children*') ? 'active' : '' }}">
+    <a href="{!! route('children.index') !!}"><i class="fa fa-edit"></i><span>Children</span></a>
+</li>
+
+<li class="{{ Request::is('parents*') ? 'active' : '' }}">
+    <a href="{!! route('parents.index') !!}"><i class="fa fa-edit"></i><span>Parents</span></a>
+</li>
+
