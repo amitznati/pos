@@ -36,7 +36,3 @@ Route::resource('products', 'ProductController');
 Route::resource('departments', 'DepartmentController');
 
 Route::resource('groups', 'GroupController');
-
-Route::resource('children', 'ChildController');
-
-Route::resource('parents', 'ParentController');
