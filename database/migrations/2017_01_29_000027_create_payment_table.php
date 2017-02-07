@@ -17,7 +17,8 @@ class CreatePaymentTable extends Migration
             $table->increments('id');
             $table->decimal('total_payed', 19, 4);
             $table->integer('order_id')->unsigned();
-            $table->char('payment_type_name', 10);
+            $table->morphs('paymentable');
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
 
 
             $table->foreign('order_id', 'FK_Payment_Order')

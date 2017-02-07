@@ -14,15 +14,9 @@ class CreateCreditpaymentTable extends Migration
     public function up()
     {
         Schema::create('credit_payments', function (Blueprint $table) {
-            $table->integer('id')->unsigned();
+            $table->increments('id');
             $table->char('card_end_with', 4);
             $table->integer('number_of_payments')->default('1');
-
-
-            $table->foreign('id', 'creditpayment_ID')
-                ->references('id')->on('payments')
-                ->onDelete('no action')
-                ->onUpdate('no action');
         });
     }
 

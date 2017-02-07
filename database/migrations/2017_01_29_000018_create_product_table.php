@@ -23,9 +23,10 @@ class CreateProductTable extends Migration
             $table->decimal('bay_price', 19, 4)->nullable()->default(null);
             $table->string('bacode')->nullable()->default(null);
             $table->string('brand')->nullable()->default(null);
+            $table->longText('description')->nullable()->default(null);
             $table->timestamps();
             $table->softDeletes();
-            $table->longText('description')->nullable()->default(null);
+            
 
 
             $table->foreign('dept_id', 'FK_Product_Department')

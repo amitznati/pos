@@ -14,15 +14,9 @@ class CreateCashpaymentTable extends Migration
     public function up()
     {
         Schema::create('cash_payments', function (Blueprint $table) {
-            $table->integer('id')->unsigned();
+            $table->increments('id');
             $table->decimal('recieved_amount', 19, 4);
             $table->decimal('change', 19, 4)->default('0.0000');
-
-
-            $table->foreign('id', 'cashpayment_ID')
-                ->references('id')->on('payments')
-                ->onDelete('no action')
-                ->onUpdate('no action');
         });
     }
 
