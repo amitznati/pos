@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class Product
  * @package App\Models
- * @version January 29, 2017, 10:05 pm UTC
+ * @version February 7, 2017, 8:42 pm UTC
  */
 class Product extends Model
 {
@@ -92,11 +92,8 @@ class Product extends Model
         return $this->belongsToMany(\App\Models\Order::class, 'order_lines');
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     **/
-    public function itemDisplayInfos()
+    public function display_infos()
     {
-        return $this->belongsToMany(\App\Models\ItemDisplayInfo::class, 'rel_item_display_info_product');
+        return $this->morphToMany('App\Models\DisplayInfo','displayable');
     }
 }

@@ -31,10 +31,16 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::resource('products', 'ProductController');
+
 
 Route::resource('departments', 'DepartmentController');
 
 Route::resource('groups', 'GroupController');
 
 Route::resource('children', 'ChildController');
+
+Route::resource('products', 'ProductController');
+
+Route::resource('employees', 'EmployeeController');
+
+//Route::resource('people', 'PersonController');
